@@ -17,7 +17,7 @@ these categories; sizes/variants belong on individual product pages).
 | | 14 inch |
 | **Cake Boxes** | 8 × 8 × 5 – ½ kg |
 | | 10 × 10 × 5 – 1 kg |
-| **Cake Bags** | 11 × 11 × 8 |
+| **Cake Boxes → Cake Bags** (sub-item, not a top-level category) | 11 × 11 × 8 |
 | | 13 × 8 × 9 |
 | **Cupcake Boxes** | 6 × 6 × 3 – 4 pcs |
 | | 9 × 6 × 3 – 6 pcs |
@@ -25,6 +25,9 @@ these categories; sizes/variants belong on individual product pages).
 | | 6 pcs |
 | | 9 pcs |
 
-These 6 categories are reflected in the homepage design preview's
+These 5 top-level categories are reflected in the homepage design preview's
 "Shop by Category" section and footer (`design-preview/index.html`).
-Product photos for each category are still pending.
+Per the client, Cake Bags is not its own homepage category — it's grouped
+under Cake Boxes (e.g. as a sub-category or variant on the Cake Boxes
+product/shop page in WooCommerce). Product photos for each category are
+still pending.

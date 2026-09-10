@@ -7,10 +7,10 @@ these categories; sizes/variants belong on individual product pages).
 | Category | Size / Specification |
 | --- | --- |
 | **Tall Cake Boxes** | 13 × 12 × 14 inch |
-| | 10 × 10 × 14 ✅ (photos: White) |
-| | 12 × 12 × 20 |
-| | 10 × 10 × 8 ✅ (photos: Pink, White) |
-| | 8 × 8 × 8 |
+| | 10 × 10 × 14 |
+| | 12 × 12 × 20 ✅ (photos: White) |
+| | 10 × 10 × 8 ✅ (photos: White) |
+| | 8 × 8 × 8 ✅ (photos: Pink, White) |
 | **Cake Drum Boards** | 8 inch |
 | | 10 inch |
 | | 12 inch |
@@ -32,3 +32,7 @@ under Cake Boxes (e.g. as a sub-category or variant on the Cake Boxes
 product/shop page in WooCommerce). Product photos have started arriving
 (see ✅ above) and are added to `design-preview/product-tall-cake-box.html`
 as they come in; the rest are still pending.
+
+Note: the first two Tall Cake Box photo sets were originally mislabeled
+(10x10x8 and 10x10x14) and have since been corrected to 8x8x8 and 10x10x8
+per client confirmation — folder names and product data now match.

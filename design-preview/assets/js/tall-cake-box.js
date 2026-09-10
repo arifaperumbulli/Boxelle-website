@@ -2,9 +2,9 @@
 // Add a new size by adding an entry here — everything else (buttons,
 // swatches, gallery, price, dimensions) renders from this object.
 const TALL_CAKE_BOX_DATA = {
-  '10x10x8': {
-    label: '10×10×8 inch',
-    dimensions: '10 × 10 × 8 inch',
+  '8x8x8': {
+    label: '8×8×8 inch',
+    dimensions: '8 × 8 × 8 inch',
     priceOld: 65,
     priceBest: 58,
     tiers: [
@@ -14,18 +14,18 @@ const TALL_CAKE_BOX_DATA = {
     ],
     colors: {
       Pink: [
-        { src: 'assets/img/products/tall-cake-box-10x10x8/pink-open-with-cake.jpeg', alt: 'Pink tall cake box, open, with cake' },
-        { src: 'assets/img/products/tall-cake-box-10x10x8/pink-empty-open.jpeg', alt: 'Pink tall cake box, empty, open' },
+        { src: 'assets/img/products/tall-cake-box-8x8x8/pink-open-with-cake.jpeg', alt: 'Pink tall cake box, open, with cake' },
+        { src: 'assets/img/products/tall-cake-box-8x8x8/pink-empty-open.jpeg', alt: 'Pink tall cake box, empty, open' },
       ],
       White: [
-        { src: 'assets/img/products/tall-cake-box-10x10x8/white-open-with-cake.jpeg', alt: 'White tall cake box, open, with cake' },
-        { src: 'assets/img/products/tall-cake-box-10x10x8/white-closed.jpeg', alt: 'White tall cake box, closed' },
+        { src: 'assets/img/products/tall-cake-box-8x8x8/white-open-with-cake.jpeg', alt: 'White tall cake box, open, with cake' },
+        { src: 'assets/img/products/tall-cake-box-8x8x8/white-closed.jpeg', alt: 'White tall cake box, closed' },
       ],
     },
   },
-  '10x10x14': {
-    label: '10×10×14 inch',
-    dimensions: '10 × 10 × 14 inch',
+  '10x10x8': {
+    label: '10×10×8 inch',
+    dimensions: '10 × 10 × 8 inch',
     priceOld: 85,
     priceBest: 76,
     tiers: [
@@ -35,8 +35,24 @@ const TALL_CAKE_BOX_DATA = {
     ],
     colors: {
       White: [
-        { src: 'assets/img/products/tall-cake-box-10x10x14/white-empty-open.jpeg', alt: 'White tall cake box, empty, open' },
-        { src: 'assets/img/products/tall-cake-box-10x10x14/white-with-cocomelon-cake.jpeg', alt: 'White tall cake box with a birthday cake' },
+        { src: 'assets/img/products/tall-cake-box-10x10x8/white-empty-open.jpeg', alt: 'White tall cake box, empty, open' },
+        { src: 'assets/img/products/tall-cake-box-10x10x8/white-with-cocomelon-cake.jpeg', alt: 'White tall cake box with a birthday cake' },
+      ],
+    },
+  },
+  '12x12x20': {
+    label: '12×12×20 inch',
+    dimensions: '12 × 12 × 20 inch',
+    priceOld: 120,
+    priceBest: 106,
+    tiers: [
+      { qty: '10+ pcs', each: 120.00, total: 1200.00 },
+      { qty: '50+ pcs', each: 113.00, total: 5650.00 },
+      { qty: '100+ pcs', each: 106.00, total: 10600.00 },
+    ],
+    colors: {
+      White: [
+        { src: 'assets/img/products/tall-cake-box-12x12x20/white-closed.jpeg', alt: 'White tall cake box, closed' },
       ],
     },
   },

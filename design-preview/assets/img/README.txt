@@ -1,18 +1,17 @@
-Image placeholders used in this preview
+Image assets in this preview
 
-This design preview uses styled placeholder blocks instead of real photos so
-the layout can be reviewed before final assets are ready. Replace these when
-available:
+REAL ASSETS (already in use):
+- logo.png            -> cropped from the client-supplied "Boxelle by YM" logo
+- founder-photo.jpg    -> client's real photo, used in the "Why Boxelle" section
+- founder-square.jpg   -> square crop of the same photo, used in "About the Founder"
+- source/              -> original, uncropped files as supplied (logo.jpeg,
+                          founder-photo.jpeg, homepage-mockup.jpeg for reference)
 
-1. Hero photo (index.html, class="hero-photo-placeholder")
-   -> Your real photo, to replace the generic model image from the reference
-      design. Recommended: portrait orientation, 4:5 ratio, high resolution.
+STILL PLACEHOLDER (styled dashed boxes, pending real photos):
+1. Hero product photo (index.html, class="hero-photo-frame") — needs the
+   boxed-cake product photo shown in the client's homepage mockup.
+2. Shop by Category images (class="card-img") — Cake Boxes, Cupcake Boxes,
+   Brownie Boxes, Cake Boards (4 images).
 
-2. About / Brand Story image (class="about-img")
-3. Collection card images (class="card-img") x4
-4. Signature showcase image (class="showcase-img")
-5. Instagram gallery images (class="gallery-item") x6
-
-Once real photos, product shots, and the logo are supplied, swap each
-placeholder div's background for an <img> tag (or CSS background-image)
-pointing at the final asset.
+Once product photography is supplied, replace each placeholder div's
+background with an <img> tag pointing at the final asset.

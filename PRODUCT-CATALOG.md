@@ -7,9 +7,9 @@ these categories; sizes/variants belong on individual product pages).
 | Category | Size / Specification |
 | --- | --- |
 | **Tall Cake Boxes** | 13 × 12 × 14 inch |
-| | 10 × 10 × 14 |
+| | 10 × 10 × 14 ✅ (photos: White) |
 | | 12 × 12 × 20 |
-| | 10 × 10 × 8 |
+| | 10 × 10 × 8 ✅ (photos: Pink, White) |
 | | 8 × 8 × 8 |
 | **Cake Drum Boards** | 8 inch |
 | | 10 inch |
@@ -29,5 +29,6 @@ These 5 top-level categories are reflected in the homepage design preview's
 "Shop by Category" section and footer (`design-preview/index.html`).
 Per the client, Cake Bags is not its own homepage category — it's grouped
 under Cake Boxes (e.g. as a sub-category or variant on the Cake Boxes
-product/shop page in WooCommerce). Product photos for each category are
-still pending.
+product/shop page in WooCommerce). Product photos have started arriving
+(see ✅ above) and are added to `design-preview/product-tall-cake-box.html`
+as they come in; the rest are still pending.

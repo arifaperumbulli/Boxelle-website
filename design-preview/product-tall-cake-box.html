@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tall Cake Box – 10×10×8 inch | BOXELLE by YM</title>
-<meta name="description" content="Tall Cake Box – 10x10x8 inch, available in Pink and White. Premium tall cake packaging from BOXELLE by YM.">
+<title>Tall Cake Box | BOXELLE by YM</title>
+<meta name="description" content="Tall Cake Box, available in multiple sizes and colours. Premium tall cake packaging from BOXELLE by YM.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -59,14 +59,14 @@
 <!-- ============ DEMO NOTICE ============ -->
 <div class="demo-notice">
   <div class="container">
-    Real product photos are now in for this item. Prices below are still placeholder examples, not final.
+    Real product photos are in for the 10&times;10&times;8 and 10&times;10&times;14 sizes so far. Prices below are still placeholder examples, not final.
   </div>
 </div>
 
 <!-- ============ BREADCRUMB ============ -->
 <div class="breadcrumb">
   <div class="container">
-    <a href="index.html">Home</a> / <a href="index.html#collections">Shop</a> / <span>Tall Cake Box &ndash; 10&times;10&times;8</span>
+    <a href="index.html">Home</a> / <a href="index.html#collections">Shop</a> / <span>Tall Cake Box</span>
   </div>
 </div>
 
@@ -76,41 +76,30 @@
 
     <div class="product-gallery" data-reveal>
       <div class="product-gallery-main">
-        <img id="mainImage" src="assets/img/products/tall-cake-box-10x10x8/pink-open-with-cake.jpeg" alt="Tall Cake Box, Pink, 10x10x8 inch, with cake">
+        <img id="mainImage" src="" alt="Tall Cake Box">
       </div>
-      <div class="product-gallery-thumbs">
-        <button type="button" class="product-thumb is-active" data-img="assets/img/products/tall-cake-box-10x10x8/pink-open-with-cake.jpeg">
-          <img src="assets/img/products/tall-cake-box-10x10x8/pink-open-with-cake.jpeg" alt="Pink box with cake">
-        </button>
-        <button type="button" class="product-thumb" data-img="assets/img/products/tall-cake-box-10x10x8/pink-empty-open.jpeg">
-          <img src="assets/img/products/tall-cake-box-10x10x8/pink-empty-open.jpeg" alt="Pink box, empty, open">
-        </button>
-        <button type="button" class="product-thumb" data-img="assets/img/products/tall-cake-box-10x10x8/white-open-with-cake.jpeg">
-          <img src="assets/img/products/tall-cake-box-10x10x8/white-open-with-cake.jpeg" alt="White box with cake">
-        </button>
-        <button type="button" class="product-thumb" data-img="assets/img/products/tall-cake-box-10x10x8/white-closed.jpeg">
-          <img src="assets/img/products/tall-cake-box-10x10x8/white-closed.jpeg" alt="White box, closed">
-        </button>
-      </div>
+      <div class="product-gallery-thumbs" id="galleryThumbs"></div>
     </div>
 
     <div class="product-details" data-reveal>
-      <h1>Tall Cake Box &ndash; 10&times;10&times;8 inch</h1>
+      <h1>Tall Cake Box <span id="sizeInTitle"></span></h1>
 
       <div class="product-price">
-        <span class="price-old">Rs. 65.00</span>
-        <span class="price-best">Best Price: Rs. 58.00</span>
+        <span class="price-old" id="priceOld"></span>
+        <span class="price-best" id="priceBest"></span>
         <span class="price-note">(example pricing &mdash; to be confirmed)</span>
       </div>
       <p class="product-tax-note">Taxes included. Shipping calculated at checkout.</p>
 
       <div class="variant-row">
+        <span class="qty-label">Size</span>
+        <div class="size-options" id="sizeOptions"></div>
+      </div>
+
+      <div class="variant-row">
         <span class="qty-label">Colour</span>
-        <div class="variant-swatches">
-          <button type="button" class="swatch swatch-pink is-active" data-color="Pink" aria-label="Pink"></button>
-          <button type="button" class="swatch swatch-white" data-color="White" aria-label="White"></button>
-        </div>
-        <span class="variant-selected" id="variantSelected">Pink</span>
+        <div class="variant-swatches" id="colorSwatches"></div>
+        <span class="variant-selected" id="variantSelected"></span>
       </div>
 
       <div class="qty-row">
@@ -126,11 +115,7 @@
         <thead>
           <tr><th>Quantity</th><th>Price Per Piece</th><th>Total Price</th></tr>
         </thead>
-        <tbody>
-          <tr><td>10+ pcs</td><td>&#8377;65.00</td><td>&#8377;650.00</td></tr>
-          <tr><td>50+ pcs</td><td>&#8377;61.50</td><td>&#8377;3,075.00</td></tr>
-          <tr><td>100+ pcs</td><td>&#8377;58.00</td><td>&#8377;5,800.00</td></tr>
-        </tbody>
+        <tbody id="priceTierBody"></tbody>
       </table>
       <p class="price-note">Sample pricing shown for layout purposes only.</p>
 
@@ -145,7 +130,7 @@
       </div>
 
       <div class="product-description">
-        <p><strong>Dimensions:</strong> 10 &times; 10 &times; 8 inch &nbsp;|&nbsp; Available in Pink and White</p>
+        <p><strong>Dimensions:</strong> <span id="dimensionsText"></span> &nbsp;|&nbsp; Available in <span id="colorsAvailableText"></span></p>
         <p>
           Our tall cake boxes are built for layered and tiered cakes, with a clear
           display window and a sturdy base that keeps every cake steady from counter
@@ -209,5 +194,6 @@
 
 <script src="assets/js/main.js"></script>
 <script src="assets/js/product.js"></script>
+<script src="assets/js/tall-cake-box.js"></script>
 </body>
 </html>

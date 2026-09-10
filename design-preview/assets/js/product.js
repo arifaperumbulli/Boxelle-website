@@ -17,26 +17,15 @@ if (qtyMinus && qtyPlus && qtyValue) {
   });
 }
 
-// Gallery thumbnails
+// Simple static gallery thumbnails (pages with one fixed set of photos,
+// no size/colour variants — see tall-cake-box.js for the variant-aware version).
 const mainImage = document.getElementById('mainImage');
-const thumbs = document.querySelectorAll('.product-thumb');
+const thumbs = document.querySelectorAll('.product-thumb[data-img]');
 
 thumbs.forEach((thumb) => {
   thumb.addEventListener('click', () => {
     if (mainImage) mainImage.src = thumb.dataset.img;
     thumbs.forEach((t) => t.classList.remove('is-active'));
     thumb.classList.add('is-active');
-  });
-});
-
-// Colour swatches
-const swatches = document.querySelectorAll('.swatch');
-const variantSelected = document.getElementById('variantSelected');
-
-swatches.forEach((swatch) => {
-  swatch.addEventListener('click', () => {
-    swatches.forEach((s) => s.classList.remove('is-active'));
-    swatch.classList.add('is-active');
-    if (variantSelected) variantSelected.textContent = swatch.dataset.color;
   });
 });

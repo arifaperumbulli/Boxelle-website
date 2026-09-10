@@ -277,7 +277,7 @@ section { padding: 90px 0; }
 .collections { background: var(--color-bg-alt); }
 .collection-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.6rem;
 }
 .collection-card { text-align: center; }

@@ -27,11 +27,11 @@ these categories; sizes/variants belong on individual product pages).
 | | 9 pcs |
 
 These 5 top-level categories are reflected in the homepage design preview's
-"Shop by Category" section and footer (`design-preview/index.html`).
+"Shop by Category" section and footer (`docs/index.html`).
 Per the client, Cake Bags is not its own homepage category — it's grouped
 under Cake Boxes (e.g. as a sub-category or variant on the Cake Boxes
 product/shop page in WooCommerce). Product photos have started arriving
-(see ✅ above) and are added to `design-preview/product-tall-cake-box.html`
+(see ✅ above) and are added to `docs/product-tall-cake-box.html`
 as they come in; the rest are still pending.
 
 Note: the first two Tall Cake Box photo sets were originally mislabeled

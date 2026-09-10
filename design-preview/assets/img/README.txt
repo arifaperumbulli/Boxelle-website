@@ -8,6 +8,7 @@ REAL ASSETS (already in use):
                           founder-photo.jpeg, homepage-mockup.jpeg for reference)
 - products/tall-cake-box-8x8x8/    -> real photos (Pink & White, open/closed)
 - products/tall-cake-box-10x10x8/  -> real photos (White only so far)
+- products/tall-cake-box-12x12x14/ -> real photos (White, closed/open/with cake)
 - products/tall-cake-box-12x12x20/ -> real photo (White, closed, only so far)
   All used on product-tall-cake-box.html (size selector switches between
   them) and the homepage's "Tall Cake Boxes" category card.
@@ -17,9 +18,11 @@ STILL PLACEHOLDER (styled dashed boxes, pending real photos):
    boxed-cake product photo for the homepage hero.
 2. Shop by Category images (class="card-img") — Cake Boxes, Cake Drum
    Boards, Cupcake Boxes, Brownie Boxes still need real photos (Tall Cake
-   Boxes is done, for the 8x8x8, 10x10x8, and 12x12x20 sizes).
-3. Tall Cake Box sizes still missing photos: 13x12x14, 10x10x14 (and a
-   Pink option for 10x10x8 and 12x12x20).
+   Boxes is done, for the 8x8x8, 10x10x8, 12x12x14, and 12x12x20 sizes).
+3. Tall Cake Box sizes still missing photos: 13x12x14 (see
+   PRODUCT-CATALOG.md note — may be the same size as 12x12x14, needs
+   confirming), 10x10x14 (and a Pink option for 10x10x8, 12x12x14, and
+   12x12x20).
 
 To add a new Tall Cake Box size/colour once photos arrive: add an entry to
 the TALL_CAKE_BOX_DATA object in assets/js/tall-cake-box.js (dimensions,

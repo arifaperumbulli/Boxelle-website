@@ -6,9 +6,10 @@ these categories; sizes/variants belong on individual product pages).
 
 | Category | Size / Specification |
 | --- | --- |
-| **Tall Cake Boxes** | 13 × 12 × 14 inch |
+| **Tall Cake Boxes** | 13 × 12 × 14 inch (unconfirmed — see note) |
 | | 10 × 10 × 14 |
 | | 12 × 12 × 20 ✅ (photos: White) |
+| | 12 × 12 × 14 ✅ (photos: White) |
 | | 10 × 10 × 8 ✅ (photos: White) |
 | | 8 × 8 × 8 ✅ (photos: Pink, White) |
 | **Cake Drum Boards** | 8 inch |
@@ -36,3 +37,9 @@ as they come in; the rest are still pending.
 Note: the first two Tall Cake Box photo sets were originally mislabeled
 (10x10x8 and 10x10x14) and have since been corrected to 8x8x8 and 10x10x8
 per client confirmation — folder names and product data now match.
+
+Note: a 12x12x14 photo set was confirmed by the client as that exact size —
+this is a new size not in the original catalog list above (which had
+13x12x14 instead). Both are kept for now; whoever finalizes the catalog
+should confirm whether 13x12x14 is also a real size or was a typo for
+12x12x14.

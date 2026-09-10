@@ -40,6 +40,24 @@ const TALL_CAKE_BOX_DATA = {
       ],
     },
   },
+  '12x12x14': {
+    label: '12×12×14 inch',
+    dimensions: '12 × 12 × 14 inch',
+    priceOld: 100,
+    priceBest: 90,
+    tiers: [
+      { qty: '10+ pcs', each: 100.00, total: 1000.00 },
+      { qty: '50+ pcs', each: 94.00, total: 4700.00 },
+      { qty: '100+ pcs', each: 90.00, total: 9000.00 },
+    ],
+    colors: {
+      White: [
+        { src: 'assets/img/products/tall-cake-box-12x12x14/white-with-wedding-cake-held.jpeg', alt: 'White tall cake box with a wedding cake, held' },
+        { src: 'assets/img/products/tall-cake-box-12x12x14/white-open-empty.jpeg', alt: 'White tall cake box, empty, open' },
+        { src: 'assets/img/products/tall-cake-box-12x12x14/white-closed.png', alt: 'White tall cake box, closed' },
+      ],
+    },
+  },
   '12x12x20': {
     label: '12×12×20 inch',
     dimensions: '12 × 12 × 20 inch',

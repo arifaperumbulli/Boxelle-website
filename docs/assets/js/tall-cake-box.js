@@ -1,6 +1,6 @@
-// Data-driven size + colour + gallery for the Tall Cake Box product page.
-// Add a new size by adding an entry here — everything else (buttons,
-// swatches, gallery, price, dimensions) renders from this object.
+// Data-driven Tall Cake Box sizes.
+// Add a new size by adding an entry here — a full, separate product block
+// (its own photos, price, description) renders automatically for it.
 const TALL_CAKE_BOX_DATA = {
   '8x8x8': {
     label: '8×8×8 inch',
@@ -13,13 +13,13 @@ const TALL_CAKE_BOX_DATA = {
       { qty: '100+ pcs', each: 58.00, total: 5800.00 },
     ],
     colors: {
-      Pink: [
-        { src: 'assets/img/products/tall-cake-box-8x8x8/pink-open-with-cake.jpeg', alt: 'Pink tall cake box, open, with cake' },
-        { src: 'assets/img/products/tall-cake-box-8x8x8/pink-empty-open.jpeg', alt: 'Pink tall cake box, empty, open' },
-      ],
       White: [
         { src: 'assets/img/products/tall-cake-box-8x8x8/white-open-with-cake.jpeg', alt: 'White tall cake box, open, with cake' },
         { src: 'assets/img/products/tall-cake-box-8x8x8/white-closed.jpeg', alt: 'White tall cake box, closed' },
+      ],
+      Pink: [
+        { src: 'assets/img/products/tall-cake-box-8x8x8/pink-open-with-cake.jpeg', alt: 'Pink tall cake box, open, with cake' },
+        { src: 'assets/img/products/tall-cake-box-8x8x8/pink-empty-open.jpeg', alt: 'Pink tall cake box, empty, open' },
       ],
     },
   },
@@ -78,65 +78,107 @@ const TALL_CAKE_BOX_DATA = {
 
 const SWATCH_COLORS = { Pink: '#f2c9d3', White: '#ffffff' };
 
-const sizeOptionsEl = document.getElementById('sizeOptions');
-const colorSwatchesEl = document.getElementById('colorSwatches');
-const galleryThumbsEl = document.getElementById('galleryThumbs');
-const mainImageEl = document.getElementById('mainImage');
-const variantSelectedEl = document.getElementById('variantSelected');
-const sizeInTitleEl = document.getElementById('sizeInTitle');
-const priceOldEl = document.getElementById('priceOld');
-const priceBestEl = document.getElementById('priceBest');
-const priceTierBodyEl = document.getElementById('priceTierBody');
-const dimensionsTextEl = document.getElementById('dimensionsText');
-const colorsAvailableTextEl = document.getElementById('colorsAvailableText');
+const sizeBlocksEl = document.getElementById('sizeBlocks');
+const sizeQuickNavEl = document.getElementById('sizeQuickNav');
 
-if (sizeOptionsEl && colorSwatchesEl && galleryThumbsEl && mainImageEl) {
-  let activeSize = Object.keys(TALL_CAKE_BOX_DATA)[0];
-  let activeColor = Object.keys(TALL_CAKE_BOX_DATA[activeSize].colors)[0];
+function formatINR(amount) {
+  return '₹' + amount.toLocaleString('en-IN', { minimumFractionDigits: 2 });
+}
 
-  function renderSizeOptions() {
-    sizeOptionsEl.innerHTML = '';
-    Object.keys(TALL_CAKE_BOX_DATA).forEach((sizeKey) => {
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'size-btn' + (sizeKey === activeSize ? ' is-active' : '');
-      btn.textContent = TALL_CAKE_BOX_DATA[sizeKey].label;
-      btn.addEventListener('click', () => {
-        activeSize = sizeKey;
-        activeColor = Object.keys(TALL_CAKE_BOX_DATA[activeSize].colors)[0];
-        renderAll();
-      });
-      sizeOptionsEl.appendChild(btn);
-    });
-  }
+function buildTierRows(tiers) {
+  return tiers.map((tier) =>
+    `<tr><td>${tier.qty}</td><td>${formatINR(tier.each)}</td><td>${formatINR(tier.total)}</td></tr>`
+  ).join('');
+}
 
-  function renderColorSwatches() {
-    colorSwatchesEl.innerHTML = '';
-    const colors = Object.keys(TALL_CAKE_BOX_DATA[activeSize].colors);
-    colors.forEach((colorName) => {
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'swatch' + (colorName === activeColor ? ' is-active' : '');
-      btn.style.background = SWATCH_COLORS[colorName] || '#ccc';
-      btn.setAttribute('aria-label', colorName);
-      btn.dataset.color = colorName;
-      btn.addEventListener('click', () => {
-        activeColor = colorName;
-        renderColorSwatches();
-        renderGallery();
-        if (variantSelectedEl) variantSelectedEl.textContent = activeColor;
-      });
-      colorSwatchesEl.appendChild(btn);
-    });
-    if (variantSelectedEl) variantSelectedEl.textContent = activeColor;
-  }
+function buildBlock(sizeKey, data) {
+  const colorNames = Object.keys(data.colors);
+  const hasMultipleColors = colorNames.length > 1;
+  const firstColor = colorNames[0];
+  const firstImage = data.colors[firstColor][0];
 
-  function renderGallery() {
-    const images = TALL_CAKE_BOX_DATA[activeSize].colors[activeColor];
+  const swatchesHTML = colorNames.map((name, i) =>
+    `<button type="button" class="swatch${i === 0 ? ' is-active' : ''}" style="background:${SWATCH_COLORS[name] || '#ccc'}" data-color="${name}" aria-label="${name}"></button>`
+  ).join('');
+
+  const block = document.createElement('section');
+  block.className = 'product size-block';
+  block.id = 'size-' + sizeKey;
+  block.innerHTML = `
+    <div class="container product-inner">
+      <div class="product-gallery">
+        <div class="product-gallery-main">
+          <img class="js-main-image" src="${firstImage.src}" alt="${firstImage.alt}">
+        </div>
+        <div class="product-gallery-thumbs js-gallery-thumbs"></div>
+      </div>
+
+      <div class="product-details">
+        <h2>Tall Cake Box &ndash; ${data.label}</h2>
+
+        <div class="product-price">
+          <span class="price-old">Rs. ${data.priceOld.toFixed(2)}</span>
+          <span class="price-best">Best Price: Rs. ${data.priceBest.toFixed(2)}</span>
+          <span class="price-note">(example pricing &mdash; to be confirmed)</span>
+        </div>
+        <p class="product-tax-note">Taxes included. Shipping calculated at checkout.</p>
+
+        ${hasMultipleColors ? `
+        <div class="variant-row">
+          <span class="qty-label">Colour</span>
+          <div class="variant-swatches js-color-swatches">${swatchesHTML}</div>
+          <span class="variant-selected js-variant-selected">${firstColor}</span>
+        </div>` : ''}
+
+        <div class="qty-row">
+          <span class="qty-label">Quantity</span>
+          <div class="qty-stepper">
+            <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity">&minus;</button>
+            <input type="text" class="qty-value" value="10" readonly>
+            <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity">+</button>
+          </div>
+        </div>
+
+        <table class="price-tier-table">
+          <thead>
+            <tr><th>Quantity</th><th>Price Per Piece</th><th>Total Price</th></tr>
+          </thead>
+          <tbody>${buildTierRows(data.tiers)}</tbody>
+        </table>
+        <p class="price-note">Sample pricing shown for layout purposes only.</p>
+
+        <label class="customise-check">
+          <input type="checkbox">
+          Get it customised &ndash; minimum order 200 pcs (free single-colour logo print)
+        </label>
+
+        <div class="product-actions">
+          <button type="button" class="btn btn-outline btn-block">Add to Cart</button>
+          <button type="button" class="btn btn-primary btn-block">Buy it Now</button>
+        </div>
+
+        <div class="product-description">
+          <p><strong>Dimensions:</strong> ${data.dimensions} &nbsp;|&nbsp; Available in ${colorNames.join(' and ')}</p>
+          <p>
+            Our tall cake boxes are built for layered and tiered cakes, with a clear
+            display window and a sturdy base that keeps every cake steady from counter
+            to doorstep.
+          </p>
+        </div>
+      </div>
+    </div>
+  `;
+
+  const mainImageEl = block.querySelector('.js-main-image');
+  const thumbsEl = block.querySelector('.js-gallery-thumbs');
+  const swatchEls = block.querySelectorAll('.js-color-swatches .swatch');
+  const variantSelectedEl = block.querySelector('.js-variant-selected');
+
+  function renderGallery(colorName) {
+    const images = data.colors[colorName];
     mainImageEl.src = images[0].src;
     mainImageEl.alt = images[0].alt;
-
-    galleryThumbsEl.innerHTML = '';
+    thumbsEl.innerHTML = '';
     images.forEach((img, index) => {
       const btn = document.createElement('button');
       btn.type = 'button';
@@ -148,37 +190,62 @@ if (sizeOptionsEl && colorSwatchesEl && galleryThumbsEl && mainImageEl) {
       btn.addEventListener('click', () => {
         mainImageEl.src = img.src;
         mainImageEl.alt = img.alt;
-        galleryThumbsEl.querySelectorAll('.product-thumb').forEach((t) => t.classList.remove('is-active'));
+        thumbsEl.querySelectorAll('.product-thumb').forEach((t) => t.classList.remove('is-active'));
         btn.classList.add('is-active');
       });
-      galleryThumbsEl.appendChild(btn);
+      thumbsEl.appendChild(btn);
     });
   }
 
-  function renderPriceAndDetails() {
-    const data = TALL_CAKE_BOX_DATA[activeSize];
-    if (sizeInTitleEl) sizeInTitleEl.textContent = '– ' + data.label;
-    if (priceOldEl) priceOldEl.textContent = 'Rs. ' + data.priceOld.toFixed(2);
-    if (priceBestEl) priceBestEl.textContent = 'Best Price: Rs. ' + data.priceBest.toFixed(2);
-    if (dimensionsTextEl) dimensionsTextEl.textContent = data.dimensions;
-    if (colorsAvailableTextEl) colorsAvailableTextEl.textContent = Object.keys(data.colors).join(' and ');
+  swatchEls.forEach((swatch) => {
+    swatch.addEventListener('click', () => {
+      swatchEls.forEach((s) => s.classList.remove('is-active'));
+      swatch.classList.add('is-active');
+      const colorName = swatch.dataset.color;
+      if (variantSelectedEl) variantSelectedEl.textContent = colorName;
+      renderGallery(colorName);
+    });
+  });
 
-    if (priceTierBodyEl) {
-      priceTierBodyEl.innerHTML = '';
-      data.tiers.forEach((tier) => {
-        const tr = document.createElement('tr');
-        tr.innerHTML = `<td>${tier.qty}</td><td>₹${tier.each.toFixed(2)}</td><td>₹${tier.total.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</td>`;
-        priceTierBodyEl.appendChild(tr);
-      });
+  renderGallery(firstColor);
+
+  return block;
+}
+
+if (sizeBlocksEl) {
+  Object.keys(TALL_CAKE_BOX_DATA).forEach((sizeKey, index) => {
+    const data = TALL_CAKE_BOX_DATA[sizeKey];
+    sizeBlocksEl.appendChild(buildBlock(sizeKey, data));
+    if (index < Object.keys(TALL_CAKE_BOX_DATA).length - 1) {
+      const divider = document.createElement('hr');
+      divider.className = 'size-divider';
+      sizeBlocksEl.appendChild(divider);
     }
-  }
+  });
 
-  function renderAll() {
-    renderSizeOptions();
-    renderColorSwatches();
-    renderGallery();
-    renderPriceAndDetails();
-  }
+  // Wire up quantity steppers now that all blocks exist in the DOM.
+  document.querySelectorAll('.qty-stepper').forEach((stepper) => {
+    const minusBtn = stepper.querySelector('.qty-minus');
+    const plusBtn = stepper.querySelector('.qty-plus');
+    const valueInput = stepper.querySelector('.qty-value');
+    const min = 1;
+    minusBtn.addEventListener('click', () => {
+      const current = parseInt(valueInput.value, 10) || min;
+      valueInput.value = Math.max(min, current - 1);
+    });
+    plusBtn.addEventListener('click', () => {
+      const current = parseInt(valueInput.value, 10) || min;
+      valueInput.value = current + 1;
+    });
+  });
+}
 
-  renderAll();
+if (sizeQuickNavEl) {
+  Object.keys(TALL_CAKE_BOX_DATA).forEach((sizeKey) => {
+    const link = document.createElement('a');
+    link.href = '#size-' + sizeKey;
+    link.className = 'size-btn';
+    link.textContent = TALL_CAKE_BOX_DATA[sizeKey].label;
+    sizeQuickNavEl.appendChild(link);
+  });
 }

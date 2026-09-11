@@ -59,7 +59,7 @@
 <!-- ============ DEMO NOTICE ============ -->
 <div class="demo-notice">
   <div class="container">
-    Real product photos are in for the 8&times;8&times;8, 10&times;10&times;8, 12&times;12&times;14, and 12&times;12&times;20 sizes so far. Prices below are still placeholder examples, not final.
+    Each size below has its own photos. Real product photos are in for 8&times;8&times;8, 10&times;10&times;8, 12&times;12&times;14, and 12&times;12&times;20 so far. Prices shown are still placeholder examples, not final.
   </div>
 </div>
 
@@ -70,77 +70,16 @@
   </div>
 </div>
 
-<!-- ============ PRODUCT ============ -->
-<section class="product">
-  <div class="container product-inner">
-
-    <div class="product-gallery" data-reveal>
-      <div class="product-gallery-main">
-        <img id="mainImage" src="" alt="Tall Cake Box">
-      </div>
-      <div class="product-gallery-thumbs" id="galleryThumbs"></div>
-    </div>
-
-    <div class="product-details" data-reveal>
-      <h1>Tall Cake Box <span id="sizeInTitle"></span></h1>
-
-      <div class="product-price">
-        <span class="price-old" id="priceOld"></span>
-        <span class="price-best" id="priceBest"></span>
-        <span class="price-note">(example pricing &mdash; to be confirmed)</span>
-      </div>
-      <p class="product-tax-note">Taxes included. Shipping calculated at checkout.</p>
-
-      <div class="variant-row">
-        <span class="qty-label">Size</span>
-        <div class="size-options" id="sizeOptions"></div>
-      </div>
-
-      <div class="variant-row">
-        <span class="qty-label">Colour</span>
-        <div class="variant-swatches" id="colorSwatches"></div>
-        <span class="variant-selected" id="variantSelected"></span>
-      </div>
-
-      <div class="qty-row">
-        <span class="qty-label">Quantity</span>
-        <div class="qty-stepper">
-          <button type="button" class="qty-btn" id="qtyMinus" aria-label="Decrease quantity">&minus;</button>
-          <input type="text" id="qtyValue" value="10" readonly>
-          <button type="button" class="qty-btn" id="qtyPlus" aria-label="Increase quantity">+</button>
-        </div>
-      </div>
-
-      <table class="price-tier-table">
-        <thead>
-          <tr><th>Quantity</th><th>Price Per Piece</th><th>Total Price</th></tr>
-        </thead>
-        <tbody id="priceTierBody"></tbody>
-      </table>
-      <p class="price-note">Sample pricing shown for layout purposes only.</p>
-
-      <label class="customise-check">
-        <input type="checkbox">
-        Get it customised &ndash; minimum order 200 pcs (free single-colour logo print)
-      </label>
-
-      <div class="product-actions">
-        <button type="button" class="btn btn-outline btn-block">Add to Cart</button>
-        <button type="button" class="btn btn-primary btn-block">Buy it Now</button>
-      </div>
-
-      <div class="product-description">
-        <p><strong>Dimensions:</strong> <span id="dimensionsText"></span> &nbsp;|&nbsp; Available in <span id="colorsAvailableText"></span></p>
-        <p>
-          Our tall cake boxes are built for layered and tiered cakes, with a clear
-          display window and a sturdy base that keeps every cake steady from counter
-          to doorstep. Pick pink for a softer, gift-ready look, or white for a clean,
-          classic finish.
-        </p>
-      </div>
-    </div>
+<!-- ============ SIZE QUICK NAV ============ -->
+<div class="size-quicknav">
+  <div class="container">
+    <span class="qty-label">Jump to size:</span>
+    <div class="size-options" id="sizeQuickNav"></div>
   </div>
-</section>
+</div>
+
+<!-- ============ PRODUCT SIZE BLOCKS (one per size, rendered by tall-cake-box.js) ============ -->
+<div id="sizeBlocks"></div>
 
 <!-- ============ FOOTER ============ -->
 <footer class="site-footer" id="contact">
